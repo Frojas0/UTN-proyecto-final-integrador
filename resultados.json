@@ -1,0 +1,2449 @@
+{
+  "entorno": {
+    "python": "3.13.16",
+    "pandas": "3.0.2",
+    "numpy": "2.4.4",
+    "sklearn": "1.8.0",
+    "notebook_host": "vscode/jupyter local"
+  },
+  "config": {
+    "SEED": 42,
+    "TEST_SIZE": 0.2,
+    "N_FOLDS": 5,
+    "CAPACIDAD_OPERATIVA": 0.2,
+    "S1_exposicion": "BILL_AMT1 (saldo del último resumen), truncado en 0 si es negativo",
+    "S2_LGD": 0.6,
+    "S3_efectividad": 0.2,
+    "S4_costo_contacto_NTD": 200,
+    "GRID_LGD": [
+      0.4,
+      0.6,
+      0.8
+    ],
+    "GRID_EFECTIVIDAD": [
+      0.1,
+      0.2,
+      0.3
+    ],
+    "GRID_CAPACIDAD": [
+      0.1,
+      0.2,
+      0.3
+    ],
+    "SOPORTE_MIN_FRAC_TRAIN": 0.01,
+    "SOPORTE_MIN_ABS": 50,
+    "TOLERANCIA_ALGORITMO": 0.01,
+    "EQUIDAD_N_MIN": 100
+  },
+  "fuente": {
+    "archivo": "default of credit card clients.xls",
+    "sha256_12": "30c6be3abd8d",
+    "sha256_full": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933",
+    "sha256_zip": null,
+    "bytes": 5539328,
+    "origen": "UCI Machine Learning Repository, dataset 350 — Default of Credit Card Clients",
+    "url": "https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients",
+    "licencia": "CC BY 4.0",
+    "cita": "Yeh, I-C. y Lien, C-H. (2009). Expert Systems with Applications 36(2), 2473-2480."
+  },
+  "T_controles": [
+    {
+      "control": "Filas duplicadas exactas (ignorando ID)",
+      "observado": 35,
+      "esperable_en_una_fuente_limpia": 0
+    }
+  ],
+  "T_verificacion": [
+    {
+      "afirmacion": "Cantidad de instancias",
+      "declarado": "30000",
+      "observado": "30000",
+      "coincide": true
+    },
+    {
+      "afirmacion": "Variables explicativas (sin ID ni target)",
+      "declarado": "23",
+      "observado": "23",
+      "coincide": true
+    },
+    {
+      "afirmacion": "Columnas totales en el archivo",
+      "declarado": "25",
+      "observado": "25",
+      "coincide": true
+    },
+    {
+      "afirmacion": "Valores faltantes (NaN)",
+      "declarado": "0",
+      "observado": "0",
+      "coincide": true
+    },
+    {
+      "afirmacion": "IDs duplicados",
+      "declarado": "0",
+      "observado": "0",
+      "coincide": true
+    },
+    {
+      "afirmacion": "Nombres de columna esperados presentes",
+      "declarado": "True",
+      "observado": "True",
+      "coincide": true
+    },
+    {
+      "afirmacion": "Target binario {0,1}",
+      "declarado": "[0, 1]",
+      "observado": "[0, 1]",
+      "coincide": true
+    }
+  ],
+  "verificacion_fallidas": [],
+  "n_filas": 30000,
+  "n_cols": 25,
+  "n_nulos": 0,
+  "n_duplicados": 35,
+  "corr_bill_por_lag": {
+    "1": 0.938,
+    "2": 0.8924,
+    "3": 0.8578,
+    "4": 0.8307,
+    "5": 0.8027
+  },
+  "orden_temporal_monotono": true,
+  "pay0_vs_bill1": 0.3146,
+  "pay0_vs_bill6": 0.2891,
+  "pay0_alinea_con_bill1": true,
+  "T_categorias": [
+    {
+      "variable": "SEX",
+      "codigo": 1,
+      "n": 11888,
+      "pct": 39.63,
+      "en_diccionario": true,
+      "significado": "masculino"
+    },
+    {
+      "variable": "SEX",
+      "codigo": 2,
+      "n": 18112,
+      "pct": 60.37,
+      "en_diccionario": true,
+      "significado": "femenino"
+    },
+    {
+      "variable": "EDUCATION",
+      "codigo": 0,
+      "n": 14,
+      "pct": 0.05,
+      "en_diccionario": false,
+      "significado": "— NO DOCUMENTADO —"
+    },
+    {
+      "variable": "EDUCATION",
+      "codigo": 1,
+      "n": 10585,
+      "pct": 35.28,
+      "en_diccionario": true,
+      "significado": "posgrado"
+    },
+    {
+      "variable": "EDUCATION",
+      "codigo": 2,
+      "n": 14030,
+      "pct": 46.77,
+      "en_diccionario": true,
+      "significado": "universidad"
+    },
+    {
+      "variable": "EDUCATION",
+      "codigo": 3,
+      "n": 4917,
+      "pct": 16.39,
+      "en_diccionario": true,
+      "significado": "secundaria"
+    },
+    {
+      "variable": "EDUCATION",
+      "codigo": 4,
+      "n": 123,
+      "pct": 0.41,
+      "en_diccionario": true,
+      "significado": "otros"
+    },
+    {
+      "variable": "EDUCATION",
+      "codigo": 5,
+      "n": 280,
+      "pct": 0.93,
+      "en_diccionario": false,
+      "significado": "— NO DOCUMENTADO —"
+    },
+    {
+      "variable": "EDUCATION",
+      "codigo": 6,
+      "n": 51,
+      "pct": 0.17,
+      "en_diccionario": false,
+      "significado": "— NO DOCUMENTADO —"
+    },
+    {
+      "variable": "MARRIAGE",
+      "codigo": 0,
+      "n": 54,
+      "pct": 0.18,
+      "en_diccionario": false,
+      "significado": "— NO DOCUMENTADO —"
+    },
+    {
+      "variable": "MARRIAGE",
+      "codigo": 1,
+      "n": 13659,
+      "pct": 45.53,
+      "en_diccionario": true,
+      "significado": "casado"
+    },
+    {
+      "variable": "MARRIAGE",
+      "codigo": 2,
+      "n": 15964,
+      "pct": 53.21,
+      "en_diccionario": true,
+      "significado": "soltero"
+    },
+    {
+      "variable": "MARRIAGE",
+      "codigo": 3,
+      "n": 323,
+      "pct": 1.08,
+      "en_diccionario": true,
+      "significado": "otros"
+    }
+  ],
+  "n_celdas_fuera_diccionario": 399,
+  "n_fuera_diccionario": 399,
+  "pct_fuera_diccionario": 1.33,
+  "dup_n_filas": 70,
+  "dup_n_grupos": 35,
+  "dup_pct_montos_cero": 85.7,
+  "dup_n_filas_montos_no_cero": 10,
+  "dup_ids_distintos": true,
+  "T_pay_codigos": [
+    {
+      "codigo": -2,
+      "PAY_0": 2759,
+      "PAY_2": 3782,
+      "PAY_3": 4085,
+      "PAY_4": 4348,
+      "PAY_5": 4546,
+      "PAY_6": 4895,
+      "documentado": false
+    },
+    {
+      "codigo": -1,
+      "PAY_0": 5686,
+      "PAY_2": 6050,
+      "PAY_3": 5938,
+      "PAY_4": 5687,
+      "PAY_5": 5539,
+      "PAY_6": 5740,
+      "documentado": true
+    },
+    {
+      "codigo": 0,
+      "PAY_0": 14737,
+      "PAY_2": 15730,
+      "PAY_3": 15764,
+      "PAY_4": 16455,
+      "PAY_5": 16947,
+      "PAY_6": 16286,
+      "documentado": false
+    },
+    {
+      "codigo": 1,
+      "PAY_0": 3688,
+      "PAY_2": 28,
+      "PAY_3": 4,
+      "PAY_4": 2,
+      "PAY_5": 0,
+      "PAY_6": 0,
+      "documentado": true
+    },
+    {
+      "codigo": 2,
+      "PAY_0": 2667,
+      "PAY_2": 3927,
+      "PAY_3": 3819,
+      "PAY_4": 3159,
+      "PAY_5": 2626,
+      "PAY_6": 2766,
+      "documentado": true
+    },
+    {
+      "codigo": 3,
+      "PAY_0": 322,
+      "PAY_2": 326,
+      "PAY_3": 240,
+      "PAY_4": 180,
+      "PAY_5": 178,
+      "PAY_6": 184,
+      "documentado": true
+    },
+    {
+      "codigo": 4,
+      "PAY_0": 76,
+      "PAY_2": 99,
+      "PAY_3": 76,
+      "PAY_4": 69,
+      "PAY_5": 84,
+      "PAY_6": 49,
+      "documentado": true
+    },
+    {
+      "codigo": 5,
+      "PAY_0": 26,
+      "PAY_2": 25,
+      "PAY_3": 21,
+      "PAY_4": 35,
+      "PAY_5": 17,
+      "PAY_6": 13,
+      "documentado": true
+    },
+    {
+      "codigo": 6,
+      "PAY_0": 11,
+      "PAY_2": 12,
+      "PAY_3": 23,
+      "PAY_4": 5,
+      "PAY_5": 4,
+      "PAY_6": 19,
+      "documentado": true
+    },
+    {
+      "codigo": 7,
+      "PAY_0": 9,
+      "PAY_2": 20,
+      "PAY_3": 27,
+      "PAY_4": 58,
+      "PAY_5": 58,
+      "PAY_6": 46,
+      "documentado": true
+    },
+    {
+      "codigo": 8,
+      "PAY_0": 19,
+      "PAY_2": 1,
+      "PAY_3": 3,
+      "PAY_4": 2,
+      "PAY_5": 1,
+      "PAY_6": 2,
+      "documentado": true
+    }
+  ],
+  "pct_pay_no_documentado": 66.85,
+  "codigos_pay_no_doc": [
+    -2,
+    0
+  ],
+  "T_outliers": [
+    {
+      "variable": "BILL_AMT1",
+      "min": -165580.0,
+      "p50": 22381.5,
+      "p99": 350110.6799999999,
+      "max": 964511.0,
+      "n_negativos": 590,
+      "n_outliers_iqr": 2400,
+      "pct_outliers_iqr": 8.0
+    },
+    {
+      "variable": "BILL_AMT2",
+      "min": -69777.0,
+      "p50": 21200.0,
+      "p99": 337495.27999999997,
+      "max": 983931.0,
+      "n_negativos": 669,
+      "n_outliers_iqr": 2395,
+      "pct_outliers_iqr": 7.98
+    },
+    {
+      "variable": "BILL_AMT3",
+      "min": -157264.0,
+      "p50": 20088.5,
+      "p99": 325030.38999999897,
+      "max": 1664089.0,
+      "n_negativos": 655,
+      "n_outliers_iqr": 2469,
+      "pct_outliers_iqr": 8.23
+    },
+    {
+      "variable": "BILL_AMT4",
+      "min": -170000.0,
+      "p50": 19052.0,
+      "p99": 304997.26999999996,
+      "max": 891586.0,
+      "n_negativos": 675,
+      "n_outliers_iqr": 2622,
+      "pct_outliers_iqr": 8.74
+    },
+    {
+      "variable": "BILL_AMT5",
+      "min": -81334.0,
+      "p50": 18104.5,
+      "p99": 285868.32999999996,
+      "max": 927171.0,
+      "n_negativos": 655,
+      "n_outliers_iqr": 2725,
+      "pct_outliers_iqr": 9.08
+    },
+    {
+      "variable": "BILL_AMT6",
+      "min": -339603.0,
+      "p50": 17071.0,
+      "p99": 279505.05999999965,
+      "max": 961664.0,
+      "n_negativos": 688,
+      "n_outliers_iqr": 2693,
+      "pct_outliers_iqr": 8.98
+    },
+    {
+      "variable": "PAY_AMT1",
+      "min": 0.0,
+      "p50": 2100.0,
+      "p99": 66522.17999999854,
+      "max": 873552.0,
+      "n_negativos": 0,
+      "n_outliers_iqr": 2745,
+      "pct_outliers_iqr": 9.15
+    },
+    {
+      "variable": "PAY_AMT2",
+      "min": 0.0,
+      "p50": 2009.0,
+      "p99": 76651.01999999999,
+      "max": 1684259.0,
+      "n_negativos": 0,
+      "n_outliers_iqr": 2714,
+      "pct_outliers_iqr": 9.05
+    },
+    {
+      "variable": "PAY_AMT3",
+      "min": 0.0,
+      "p50": 1800.0,
+      "p99": 70000.0,
+      "max": 896040.0,
+      "n_negativos": 0,
+      "n_outliers_iqr": 2598,
+      "pct_outliers_iqr": 8.66
+    },
+    {
+      "variable": "PAY_AMT4",
+      "min": 0.0,
+      "p50": 1500.0,
+      "p99": 67054.43999999961,
+      "max": 621000.0,
+      "n_negativos": 0,
+      "n_outliers_iqr": 2994,
+      "pct_outliers_iqr": 9.98
+    },
+    {
+      "variable": "PAY_AMT5",
+      "min": 0.0,
+      "p50": 1500.0,
+      "p99": 65607.55999999991,
+      "max": 426529.0,
+      "n_negativos": 0,
+      "n_outliers_iqr": 2945,
+      "pct_outliers_iqr": 9.82
+    },
+    {
+      "variable": "PAY_AMT6",
+      "min": 0.0,
+      "p50": 1500.0,
+      "p99": 82619.04999999935,
+      "max": 528666.0,
+      "n_negativos": 0,
+      "n_outliers_iqr": 2958,
+      "pct_outliers_iqr": 9.86
+    },
+    {
+      "variable": "LIMIT_BAL",
+      "min": 10000.0,
+      "p50": 140000.0,
+      "p99": 500000.0,
+      "max": 1000000.0,
+      "n_negativos": 0,
+      "n_outliers_iqr": 167,
+      "pct_outliers_iqr": 0.56
+    },
+    {
+      "variable": "AGE",
+      "min": 21.0,
+      "p50": 34.0,
+      "p99": 60.0,
+      "max": 79.0,
+      "n_negativos": 0,
+      "n_outliers_iqr": 272,
+      "pct_outliers_iqr": 0.91
+    }
+  ],
+  "outliers_iqr_min": 7.98,
+  "outliers_iqr_max": 9.98,
+  "max_sobre_p99_max": 22.0,
+  "max_sobre_p99_var": "PAY_AMT2",
+  "max_sobre_p99_min": 2.8,
+  "n_clientes_bill_negativo": 1930,
+  "pct_clientes_bill_negativo": 6.43,
+  "max_bill_amt1": 964511.0,
+  "p99_bill_amt1": 350110.6799999999,
+  "ratio_max_p99_bill1": 2.8,
+  "prevalencia": 0.2212,
+  "pct_default": 22.12,
+  "n_default": 6636,
+  "accuracy_clase_mayoritaria": 77.88,
+  "dup_grupos_partidos_split": 0,
+  "n_train": 23998,
+  "n_holdout": 6002,
+  "prev_train": 0.2212,
+  "prev_holdout": 0.2211,
+  "T_tasa_categorias": [
+    {
+      "variable": "EDUCATION",
+      "codigo": 0,
+      "n_train": 10,
+      "tasa_default": 0.0,
+      "documentado": false
+    },
+    {
+      "variable": "EDUCATION",
+      "codigo": 1,
+      "n_train": 8493,
+      "tasa_default": 0.1956,
+      "documentado": true
+    },
+    {
+      "variable": "EDUCATION",
+      "codigo": 2,
+      "n_train": 11256,
+      "tasa_default": 0.2361,
+      "documentado": true
+    },
+    {
+      "variable": "EDUCATION",
+      "codigo": 3,
+      "n_train": 3871,
+      "tasa_default": 0.2485,
+      "documentado": true
+    },
+    {
+      "variable": "EDUCATION",
+      "codigo": 4,
+      "n_train": 90,
+      "tasa_default": 0.0667,
+      "documentado": true
+    },
+    {
+      "variable": "EDUCATION",
+      "codigo": 5,
+      "n_train": 235,
+      "tasa_default": 0.0723,
+      "documentado": false
+    },
+    {
+      "variable": "EDUCATION",
+      "codigo": 6,
+      "n_train": 43,
+      "tasa_default": 0.1163,
+      "documentado": false
+    },
+    {
+      "variable": "MARRIAGE",
+      "codigo": 0,
+      "n_train": 46,
+      "tasa_default": 0.087,
+      "documentado": false
+    },
+    {
+      "variable": "MARRIAGE",
+      "codigo": 1,
+      "n_train": 10899,
+      "tasa_default": 0.2332,
+      "documentado": true
+    },
+    {
+      "variable": "MARRIAGE",
+      "codigo": 2,
+      "n_train": 12787,
+      "tasa_default": 0.2106,
+      "documentado": true
+    },
+    {
+      "variable": "MARRIAGE",
+      "codigo": 3,
+      "n_train": 266,
+      "tasa_default": 0.2632,
+      "documentado": true
+    },
+    {
+      "variable": "SEX",
+      "codigo": 1,
+      "n_train": 9552,
+      "tasa_default": 0.2411,
+      "documentado": true
+    },
+    {
+      "variable": "SEX",
+      "codigo": 2,
+      "n_train": 14446,
+      "tasa_default": 0.2081,
+      "documentado": true
+    }
+  ],
+  "regla_agrupar": {
+    "criterio": "IC 95% de la diferencia de dos proporciones (código no documentado vs. 'otros') contiene 0",
+    "z": 1.96
+  },
+  "T_decision_cat": [
+    {
+      "variable": "EDUCATION",
+      "codigos_no_doc": "[0, 5, 6]",
+      "n_train": 288,
+      "share_train_pct": 1.2,
+      "tasa_no_doc": 0.0764,
+      "ic95_diferencia": "[-0.0503, +0.0697]",
+      "tasa_otros": 0.0667,
+      "delta_pp": 1.0,
+      "decision": "agrupar en 'otros'"
+    },
+    {
+      "variable": "MARRIAGE",
+      "codigos_no_doc": "[0]",
+      "n_train": 46,
+      "share_train_pct": 0.19,
+      "tasa_no_doc": 0.087,
+      "ic95_diferencia": "[-0.2733, -0.0791]",
+      "tasa_otros": 0.2632,
+      "delta_pp": 17.6,
+      "decision": "conservar separado"
+    }
+  ],
+  "decisiones_cat": {
+    "EDUCATION": true,
+    "MARRIAGE": false
+  },
+  "T_tasa_pay1": [
+    {
+      "PAY_1": -2,
+      "n_train": 2173,
+      "tasa_default": 0.1321
+    },
+    {
+      "PAY_1": -1,
+      "n_train": 4530,
+      "tasa_default": 0.1698
+    },
+    {
+      "PAY_1": 0,
+      "n_train": 11820,
+      "tasa_default": 0.1262
+    },
+    {
+      "PAY_1": 1,
+      "n_train": 2966,
+      "tasa_default": 0.3409
+    },
+    {
+      "PAY_1": 2,
+      "n_train": 2144,
+      "tasa_default": 0.6936
+    },
+    {
+      "PAY_1": 3,
+      "n_train": 250,
+      "tasa_default": 0.772
+    },
+    {
+      "PAY_1": 4,
+      "n_train": 62,
+      "tasa_default": 0.6935
+    },
+    {
+      "PAY_1": 5,
+      "n_train": 20,
+      "tasa_default": 0.45
+    },
+    {
+      "PAY_1": 6,
+      "n_train": 10,
+      "tasa_default": 0.5
+    },
+    {
+      "PAY_1": 7,
+      "n_train": 8,
+      "tasa_default": 0.75
+    },
+    {
+      "PAY_1": 8,
+      "n_train": 15,
+      "tasa_default": 0.4667
+    }
+  ],
+  "min_soporte": 239,
+  "codigos_con_soporte": [
+    -2,
+    -1,
+    0,
+    1,
+    2,
+    3
+  ],
+  "spearman_pay1_tasa": 0.7857,
+  "spearman_pay1_soporte": 1.0,
+  "anomalia_pay_neg": true,
+  "tasa_pay_m1": 0.1698,
+  "tasa_pay_0": 0.1262,
+  "mi_pares_inestables": [
+    [
+      "LIMIT_BAL",
+      "PAY_AMT2"
+    ],
+    [
+      "PAY_AMT2",
+      "PAY_AMT4"
+    ],
+    [
+      "AGE",
+      "BILL_AMT4"
+    ],
+    [
+      "BILL_AMT4",
+      "EDUCATION"
+    ]
+  ],
+  "T_mi": [
+    {
+      "variable": "PAY_1",
+      "info_mutua": 0.07737,
+      "info_mutua_std": 0.0,
+      "familia": "estado_pago",
+      "info_mutua_ee": 0.0
+    },
+    {
+      "variable": "PAY_2",
+      "info_mutua": 0.04957,
+      "info_mutua_std": 0.0,
+      "familia": "estado_pago",
+      "info_mutua_ee": 0.0
+    },
+    {
+      "variable": "PAY_3",
+      "info_mutua": 0.03756,
+      "info_mutua_std": 0.0,
+      "familia": "estado_pago",
+      "info_mutua_ee": 0.0
+    },
+    {
+      "variable": "PAY_4",
+      "info_mutua": 0.03264,
+      "info_mutua_std": 0.0,
+      "familia": "estado_pago",
+      "info_mutua_ee": 0.0
+    },
+    {
+      "variable": "PAY_5",
+      "info_mutua": 0.02964,
+      "info_mutua_std": 0.0,
+      "familia": "estado_pago",
+      "info_mutua_ee": 0.0
+    },
+    {
+      "variable": "PAY_6",
+      "info_mutua": 0.02539,
+      "info_mutua_std": 0.0,
+      "familia": "estado_pago",
+      "info_mutua_ee": 0.0
+    },
+    {
+      "variable": "PAY_AMT1",
+      "info_mutua": 0.0231,
+      "info_mutua_std": 0.00141,
+      "familia": "montos",
+      "info_mutua_ee": 0.00032
+    },
+    {
+      "variable": "PAY_AMT3",
+      "info_mutua": 0.01823,
+      "info_mutua_std": 0.00196,
+      "familia": "montos",
+      "info_mutua_ee": 0.00044
+    },
+    {
+      "variable": "LIMIT_BAL",
+      "info_mutua": 0.01627,
+      "info_mutua_std": 0.00337,
+      "familia": "limite",
+      "info_mutua_ee": 0.00075
+    },
+    {
+      "variable": "PAY_AMT2",
+      "info_mutua": 0.01624,
+      "info_mutua_std": 0.00162,
+      "familia": "montos",
+      "info_mutua_ee": 0.00036
+    },
+    {
+      "variable": "PAY_AMT4",
+      "info_mutua": 0.01559,
+      "info_mutua_std": 0.0019,
+      "familia": "montos",
+      "info_mutua_ee": 0.00042
+    },
+    {
+      "variable": "PAY_AMT5",
+      "info_mutua": 0.01408,
+      "info_mutua_std": 0.00211,
+      "familia": "montos",
+      "info_mutua_ee": 0.00047
+    },
+    {
+      "variable": "PAY_AMT6",
+      "info_mutua": 0.01239,
+      "info_mutua_std": 0.00208,
+      "familia": "montos",
+      "info_mutua_ee": 0.00047
+    },
+    {
+      "variable": "BILL_AMT1",
+      "info_mutua": 0.00892,
+      "info_mutua_std": 0.0009,
+      "familia": "montos",
+      "info_mutua_ee": 0.0002
+    },
+    {
+      "variable": "BILL_AMT5",
+      "info_mutua": 0.00824,
+      "info_mutua_std": 0.0012,
+      "familia": "montos",
+      "info_mutua_ee": 0.00027
+    },
+    {
+      "variable": "BILL_AMT3",
+      "info_mutua": 0.00655,
+      "info_mutua_std": 0.0009,
+      "familia": "montos",
+      "info_mutua_ee": 0.0002
+    },
+    {
+      "variable": "BILL_AMT2",
+      "info_mutua": 0.00465,
+      "info_mutua_std": 0.00077,
+      "familia": "montos",
+      "info_mutua_ee": 0.00017
+    },
+    {
+      "variable": "BILL_AMT6",
+      "info_mutua": 0.00386,
+      "info_mutua_std": 0.00145,
+      "familia": "montos",
+      "info_mutua_ee": 0.00032
+    },
+    {
+      "variable": "AGE",
+      "info_mutua": 0.00278,
+      "info_mutua_std": 0.00228,
+      "familia": "demografica",
+      "info_mutua_ee": 0.00051
+    },
+    {
+      "variable": "BILL_AMT4",
+      "info_mutua": 0.00274,
+      "info_mutua_std": 0.00083,
+      "familia": "montos",
+      "info_mutua_ee": 0.00019
+    },
+    {
+      "variable": "EDUCATION",
+      "info_mutua": 0.00263,
+      "info_mutua_std": 0.0,
+      "familia": "demografica",
+      "info_mutua_ee": 0.0
+    },
+    {
+      "variable": "SEX",
+      "info_mutua": 0.00075,
+      "info_mutua_std": 0.0,
+      "familia": "demografica",
+      "info_mutua_ee": 0.0
+    },
+    {
+      "variable": "MARRIAGE",
+      "info_mutua": 0.00054,
+      "info_mutua_std": 0.0,
+      "familia": "demografica",
+      "info_mutua_ee": 0.0
+    }
+  ],
+  "rangos": {
+    "LIMIT_BAL": {
+      "tipo": "entero",
+      "min": 10000.0,
+      "max": 1000000.0
+    },
+    "SEX": {
+      "tipo": "entero",
+      "min": 1.0,
+      "max": 2.0
+    },
+    "EDUCATION": {
+      "tipo": "entero",
+      "min": 0.0,
+      "max": 6.0
+    },
+    "MARRIAGE": {
+      "tipo": "entero",
+      "min": 0.0,
+      "max": 3.0
+    },
+    "AGE": {
+      "tipo": "entero",
+      "min": 21.0,
+      "max": 79.0
+    },
+    "PAY_1": {
+      "tipo": "entero",
+      "min": -2.0,
+      "max": 8.0
+    },
+    "PAY_2": {
+      "tipo": "entero",
+      "min": -2.0,
+      "max": 8.0
+    },
+    "PAY_3": {
+      "tipo": "entero",
+      "min": -2.0,
+      "max": 8.0
+    },
+    "PAY_4": {
+      "tipo": "entero",
+      "min": -2.0,
+      "max": 8.0
+    },
+    "PAY_5": {
+      "tipo": "entero",
+      "min": -2.0,
+      "max": 8.0
+    },
+    "PAY_6": {
+      "tipo": "entero",
+      "min": -2.0,
+      "max": 8.0
+    },
+    "BILL_AMT1": {
+      "tipo": "entero",
+      "min": -165580.0,
+      "max": 964511.0
+    },
+    "BILL_AMT2": {
+      "tipo": "entero",
+      "min": -69777.0,
+      "max": 983931.0
+    },
+    "BILL_AMT3": {
+      "tipo": "entero",
+      "min": -157264.0,
+      "max": 1664089.0
+    },
+    "BILL_AMT4": {
+      "tipo": "entero",
+      "min": -170000.0,
+      "max": 891586.0
+    },
+    "BILL_AMT5": {
+      "tipo": "entero",
+      "min": -81334.0,
+      "max": 927171.0
+    },
+    "BILL_AMT6": {
+      "tipo": "entero",
+      "min": -339603.0,
+      "max": 961664.0
+    },
+    "PAY_AMT1": {
+      "tipo": "entero",
+      "min": 0.0,
+      "max": 873552.0
+    },
+    "PAY_AMT2": {
+      "tipo": "entero",
+      "min": 0.0,
+      "max": 1684259.0
+    },
+    "PAY_AMT3": {
+      "tipo": "entero",
+      "min": 0.0,
+      "max": 896040.0
+    },
+    "PAY_AMT4": {
+      "tipo": "entero",
+      "min": 0.0,
+      "max": 621000.0
+    },
+    "PAY_AMT5": {
+      "tipo": "entero",
+      "min": 0.0,
+      "max": 426529.0
+    },
+    "PAY_AMT6": {
+      "tipo": "entero",
+      "min": 0.0,
+      "max": 528666.0
+    }
+  },
+  "target": {
+    "nombre": "default payment next month",
+    "descripcion": "1 = incumple el mes siguiente, 0 = no",
+    "positivos": 6636,
+    "prevalencia": 0.2212
+  },
+  "diccionario_10": [
+    "PAY_1",
+    "PAY_2",
+    "PAY_3",
+    "PAY_4",
+    "PAY_5",
+    "PAY_6",
+    "PAY_AMT1",
+    "PAY_AMT3",
+    "LIMIT_BAL",
+    "AGE"
+  ],
+  "mi_top": 0.07737,
+  "T_limpieza_tomadas": [
+    {
+      "id": "L1",
+      "decision": "PAY_0 renombrada a PAY_1",
+      "corta": "PAY_0 renombrada a PAY_1: restaura la secuencia, verificado en 1.3",
+      "justificacion": "El nombre rompe la secuencia y es fuente de error al construir features de tendencia. Alineación con el mes 1 verificada en 1.3. No altera ningún valor."
+    },
+    {
+      "id": "L2",
+      "decision": "EDUCATION: códigos [0, 5, 6] agrupados en 'otros'",
+      "corta": "EDUCATION 0, 5, 6 agrupados en 'otros': difieren 1,0 pp (5.1)",
+      "justificacion": "Códigos sin documentar, 1.2% del train. Su tasa de default es 0.0764 contra 0.0667 de la categoría 'otros': 1,0 puntos de diferencia. El IC 95% de la diferencia de tasas ([-0.0503, +0.0697], test de dos proporciones, regla declarada en 5.1) CONTIENE el 0: no hay evidencia de que se comporten distinto, así que se absorben en 'otros' sin perder información."
+    },
+    {
+      "id": "L3",
+      "decision": "MARRIAGE: código [0] conservado aparte",
+      "corta": "MARRIAGE 0 conservado aparte: difiere 17,6 pp de 'otros'",
+      "justificacion": "Códigos sin documentar, 0.19% del train. Su tasa de default es 0.0870 contra 0.2632 de la categoría 'otros': 17,6 puntos de diferencia. El IC 95% de la diferencia de tasas ([-0.2733, -0.0791]) NO contiene el 0: no se comportan como 'otros', así que se conservan como categoría propia. Fundirlos ahí borraría esa señal."
+    },
+    {
+      "id": "L4",
+      "decision": "ID excluida del modelo",
+      "corta": "ID fuera del modelo: identificador, correlación espuria con la carga",
+      "justificacion": "Identificador administrativo. Correlación espuria con el orden de carga."
+    },
+    {
+      "id": "L5",
+      "decision": "Todas las demográficas excluidas del modelo",
+      "corta": "SEX, AGE, EDUCATION y MARRIAGE fuera del modelo: cuestan menos que U5",
+      "justificacion": "SEX, AGE y MARRIAGE son atributos protegidos en scoring crediticio; EDUCATION es un proxy socioeconómico directo. Excluirlas todas cuesta menos de lo que el propio umbral U5 tolera (medido en 6.2). Se limpian igual a nivel dataset (L2, L3) porque siguen disponibles para auditar equidad aunque el modelo no las use."
+    },
+    {
+      "id": "L6",
+      "decision": "PAY_* como numéricas ordinales",
+      "corta": "PAY_* ordinales: monótono en el tramo con soporte, no en los negativos",
+      "justificacion": "Spearman 1.00 en el tramo de códigos >= 0 con soporte suficiente (n >= 239), donde está el grueso de la señal. Pero la monotonía SE ROMPE abajo: el código -1 ('pagó puntual') tiene tasa 0.1698 contra 0.1262 del código 0. El orden -2 < -1 < 0 que sugiere el diccionario no se verifica. Se mantiene ordinal en el baseline por simplicidad, con el supuesto declarado como NO cumplido en ese tramo; el encoding definitivo queda en P3."
+    },
+    {
+      "id": "L7",
+      "decision": "BILL_AMT negativos conservados",
+      "corta": "BILL_AMT negativos conservados: saldo a favor, dato legítimo",
+      "justificacion": "Son saldos a favor, comportamiento legítimo, no errores de carga. Eliminarlos o truncarlos destruiría información real."
+    },
+    {
+      "id": "L8",
+      "decision": "Sin imputación de faltantes",
+      "corta": "Sin imputación: no hay NaN (1.2), el imputador queda de salvaguarda",
+      "justificacion": "El dataset no tiene NaN (1.2). El imputador queda igual dentro del Pipeline como salvaguarda para datos nuevos."
+    },
+    {
+      "id": "L9",
+      "decision": "Filas duplicadas exactas conservadas",
+      "corta": "Duplicados exactos conservados: 35 pares con ID propio (2.1bis)",
+      "justificacion": "Hay 70 filas idénticas ignorando ID, en 35 grupos, y el 85.7% tiene todos los montos en cero: son cuentas sin actividad. Las 10 restantes repiten montos no nulos en los 12 campos y no se explican por inactividad: quedan señaladas para revisión (P7). Todas tienen ID propio y no hay evidencia de error de carga, así que se conservan."
+    },
+    {
+      "id": "L10",
+      "decision": "Duplicados agrupados en el split train/holdout",
+      "corta": "Split agrupa duplicados: 0 grupos partidos entre train/holdout (antes 7, con split por fila)",
+      "justificacion": "Un split por fila puede poner las dos copias de un duplicado exacto una en train y otra en holdout: el modelo evalúa en el holdout una fila que en la práctica ya vio en entrenamiento, lo que infla la métrica. Con la partición semilla=42, el split por fila (versión anterior) dejaba 7 grupos partidos; agrupando por todas las columnas salvo ID antes de particionar (Bloque 4) quedan 0."
+    }
+  ],
+  "T_limpieza_pendientes": [
+    {
+      "id": "P1",
+      "decision": "Tratamiento de la cola derecha en montos",
+      "corta": "Cola derecha en montos: winsorizar, log1p o dejar según el modelo",
+      "criterio_para_resolverla": "Winsorizar al p99, transformar log1p con signo, o dejar crudo. Depende de la familia de modelos: la logística es sensible a la escala, los árboles no. Se decide al comparar."
+    },
+    {
+      "id": "P2",
+      "decision": "Indicadora separada de saldo a favor",
+      "corta": "Saldo a favor: evaluar si conviene desdoblar en binaria + magnitud",
+      "criterio_para_resolverla": "Evaluar si conviene desdoblar BILL_AMT negativo en una binaria + magnitud."
+    },
+    {
+      "id": "P3",
+      "decision": "Encoding definitivo de PAY_*",
+      "corta": "Encoding de PAY_*: ordinal, one-hot o agrupado por tramo de atraso",
+      "criterio_para_resolverla": "Ordinal vs. one-hot vs. agrupado en {sin consumo, al día, revolvente, atraso 1, atraso 2+}."
+    },
+    {
+      "id": "P4",
+      "decision": "LIMIT_BAL como proxy residual",
+      "corta": "LIMIT_BAL lo asignó el propio banco: puede cargar sesgo histórico",
+      "criterio_para_resolverla": "Excluir las demográficas (L5) cierra la vía directa, pero el límite de crédito es una decisión previa del emisor y puede codificar sesgos pasados. Medir paridad de tasas de selección por grupo protegido excede esta etapa."
+    },
+    {
+      "id": "P5",
+      "decision": "Features derivadas (utilización, ratio de pago)",
+      "corta": "Features derivadas: fuera a propósito, el baseline debe ser un piso",
+      "criterio_para_resolverla": "Utilización (BILL/LIMIT), ratio de pago (PAY_AMT/BILL_AMT), tendencia del atraso. Quedan fuera a propósito: el baseline tiene que ser simple para servir de piso."
+    },
+    {
+      "id": "P6",
+      "decision": "Consistencia BILL_AMT = 0 con PAY_AMT > 0",
+      "corta": "BILL_AMT=0 con PAY_AMT>0: ¿error de registro o cancelación total?",
+      "criterio_para_resolverla": "Revisar si indica error de registro o cancelación total. No afecta al baseline."
+    },
+    {
+      "id": "P7",
+      "decision": "Duplicados con montos no nulos: ¿mismo cliente o coincidencia?",
+      "corta": "Duplicados con montos no nulos idénticos: confirmar si son el mismo cliente",
+      "criterio_para_resolverla": "De los 35 grupos duplicados, 10 filas repiten los 12 montos exactos y no se explican por inactividad (2.1bis). El riesgo de que optimicen la métrica por fuga entre particiones ya lo resuelve L10; lo que falta es de contenido: confirmar con el área de negocio si son el mismo cliente con alta duplicada u otra causa."
+    }
+  ],
+  "cv": {
+    "pr_auc_mean": 0.503,
+    "pr_auc_std": 0.0147,
+    "roc_auc_mean": 0.7228,
+    "roc_auc_std": 0.0136,
+    "brier_mean": 0.1454
+  },
+  "H1": {
+    "solo_pago": 0.4873,
+    "solo_demografica": 0.2543,
+    "se_sostiene": true
+  },
+  "H4": {
+    "con_demograficas": 0.5032,
+    "sin_demograficas": 0.503,
+    "delta": 0.0002,
+    "cumple_U5": true
+  },
+  "H3": {
+    "sin_derivadas": 0.503,
+    "con_derivadas": 0.5021,
+    "delta": -0.0009,
+    "se_sostiene": false
+  },
+  "comparacion_algoritmos": [
+    {
+      "algoritmo": "logistica",
+      "nombre": "Regresión logística",
+      "pr_auc_cv_media": 0.503,
+      "pr_auc_cv_std": 0.0147,
+      "roc_auc_cv_media": 0.7228,
+      "expo_M1_train_NTD": 181517482.0,
+      "recall_M0_train": 0.4903,
+      "f1_M0_train": 0.515,
+      "segundos_cv": 0.4
+    },
+    {
+      "algoritmo": "hgb",
+      "nombre": "Gradient boosting",
+      "pr_auc_cv_media": 0.5579,
+      "pr_auc_cv_std": 0.0187,
+      "roc_auc_cv_media": 0.7804,
+      "expo_M1_train_NTD": 195002470.0,
+      "recall_M0_train": 0.5131,
+      "f1_M0_train": 0.5389,
+      "segundos_cv": 1.2
+    },
+    {
+      "algoritmo": "rf",
+      "nombre": "Random Forest",
+      "pr_auc_cv_media": 0.5582,
+      "pr_auc_cv_std": 0.0188,
+      "roc_auc_cv_media": 0.7829,
+      "expo_M1_train_NTD": 196108839.0,
+      "recall_M0_train": 0.5186,
+      "f1_M0_train": 0.5447,
+      "segundos_cv": 34.5
+    }
+  ],
+  "algoritmo_final": {
+    "clave": "hgb",
+    "nombre": "Gradient boosting",
+    "criterio": "mayor exposición capturada @ capacidad fija (M1, train OOF, sin calibrar); desempate por costo con tolerancia 1%",
+    "lider_en_exposicion": "rf",
+    "gano_por_desempate": true
+  },
+  "cv_final": {
+    "pr_auc_mean": 0.5579,
+    "pr_auc_std": 0.0187,
+    "roc_auc_mean": 0.7804
+  },
+  "H3_final": {
+    "algoritmo": "hgb",
+    "sin_derivadas": 0.5579,
+    "con_derivadas": 0.56,
+    "delta": 0.0021,
+    "se_sostiene": false
+  },
+  "H4_final": {
+    "algoritmo": "hgb",
+    "con_demograficas": 0.5589,
+    "sin_demograficas": 0.5579,
+    "delta": 0.001,
+    "cumple_U5": true
+  },
+  "pendientes_resueltas": {
+    "P1": "Cola derecha en montos: no se transforma. Los árboles cortan por umbral y son invariantes a transformaciones monótonas (winsorizar o log1p no cambian el modelo).",
+    "P2": "Saldo a favor: no hace falta la binaria; el árbol puede cortar en BILL_AMT = 0.",
+    "P3": "Encoding de PAY_*: se mantiene ordinal. Un árbol separa cualquier tramo de códigos con cortes sucesivos, así que el one-hot no agrega capacidad.",
+    "P5": "Variables derivadas: quedan fuera (H3 con el algoritmo final, delta +0.0021)."
+  },
+  "decision_calibrar": {
+    "gap_ece_train_crudo": 0.0064,
+    "gap_ece_train_calibrado": 0.0059,
+    "calibrar": true,
+    "metodo": "isotonic",
+    "decidido_sobre": "train OOF (cross_val_predict, sin holdout)"
+  },
+  "decision_variantes": {
+    "regla_ganadora": "B2",
+    "modelo_ganador": "M1",
+    "criterio": "exposición capturada @ capacidad fija, sobre train OOF",
+    "exposicion_train_NTD": {
+      "B1": 141247813.0,
+      "B2": 162336426.0,
+      "M0": 137093804.0,
+      "M1": 196502636.0
+    }
+  },
+  "holdout": {
+    "pr_auc": 0.547,
+    "roc_auc": 0.773,
+    "brier": 0.1361,
+    "pr_auc_ic95": [
+      0.5182,
+      0.5762
+    ],
+    "roc_auc_ic95": [
+      0.758,
+      0.7877
+    ],
+    "brier_ic95": [
+      0.1305,
+      0.1418
+    ],
+    "brier_trivial": 0.1722,
+    "brier_skill_score": 0.2097,
+    "calibracion_curva": {
+      "prob_predicha_por_decil": [
+        0.0443,
+        0.0676,
+        0.0951,
+        0.1194,
+        0.1393,
+        0.1639,
+        0.1936,
+        0.2564,
+        0.4277,
+        0.7087
+      ],
+      "tasa_observada_por_decil": [
+        0.0448,
+        0.0753,
+        0.0982,
+        0.1169,
+        0.1464,
+        0.1767,
+        0.1836,
+        0.2659,
+        0.4126,
+        0.6972
+      ]
+    },
+    "calibracion_gap_medio_decil": 0.008,
+    "calibracion_gap_max_decil": 0.0151
+  },
+  "T_estrategias": [
+    {
+      "estrategia": "B0 · Azar",
+      "n_gestionados": 1200,
+      "morosos_capturados": 282,
+      "recall": 0.2125,
+      "precision": 0.235,
+      "f1": 0.2232,
+      "exposicion_capturada_NTD": 13384038.0,
+      "lift": 1.06,
+      "perdida_evitada_NTD": 1606085.0,
+      "costo_campana_NTD": 240000,
+      "beneficio_neto_NTD": 1366085.0
+    },
+    {
+      "estrategia": "B1 · Regla de atraso (PAY_1>=1)",
+      "n_gestionados": 1200,
+      "morosos_capturados": 633,
+      "recall": 0.477,
+      "precision": 0.5275,
+      "f1": 0.501,
+      "exposicion_capturada_NTD": 34509973.0,
+      "lift": 2.38,
+      "perdida_evitada_NTD": 4141197.0,
+      "costo_campana_NTD": 240000,
+      "beneficio_neto_NTD": 3901197.0
+    },
+    {
+      "estrategia": "B2 · Regla de exposición (saldo)",
+      "n_gestionados": 1200,
+      "morosos_capturados": 243,
+      "recall": 0.1831,
+      "precision": 0.2025,
+      "f1": 0.1923,
+      "exposicion_capturada_NTD": 43740502.0,
+      "lift": 0.92,
+      "perdida_evitada_NTD": 5248860.0,
+      "costo_campana_NTD": 240000,
+      "beneficio_neto_NTD": 5008860.0
+    },
+    {
+      "estrategia": "M0 · Gradient boosting (ranking por probabilidad)",
+      "n_gestionados": 1200,
+      "morosos_capturados": 664,
+      "recall": 0.5004,
+      "precision": 0.5533,
+      "f1": 0.5255,
+      "exposicion_capturada_NTD": 32972552.0,
+      "lift": 2.5,
+      "perdida_evitada_NTD": 3956706.0,
+      "costo_campana_NTD": 240000,
+      "beneficio_neto_NTD": 3716706.0
+    },
+    {
+      "estrategia": "M1 · Gradient boosting (ranking por pérdida esperada)",
+      "n_gestionados": 1200,
+      "morosos_capturados": 485,
+      "recall": 0.3655,
+      "precision": 0.4042,
+      "f1": 0.3839,
+      "exposicion_capturada_NTD": 51471700.0,
+      "lift": 1.83,
+      "perdida_evitada_NTD": 6176604.0,
+      "costo_campana_NTD": 240000,
+      "beneficio_neto_NTD": 5936604.0
+    }
+  ],
+  "K_gestionados": 1200,
+  "n_morosos_holdout": 1327,
+  "tam_natural_regla": 1343,
+  "comparacion_algoritmos_holdout": [
+    {
+      "algoritmo": "logistica",
+      "nombre": "Regresión logística",
+      "elegido_en_6_3": false,
+      "pr_auc": 0.5002,
+      "roc_auc": 0.715,
+      "brier": 0.1462,
+      "recall_M0": 0.4732,
+      "precision_M0": 0.5233,
+      "f1_M0": 0.497,
+      "lift_M0": 2.37,
+      "expo_M1_NTD": 48371692.0
+    },
+    {
+      "algoritmo": "hgb",
+      "nombre": "Gradient boosting",
+      "elegido_en_6_3": true,
+      "pr_auc": 0.5458,
+      "roc_auc": 0.7698,
+      "brier": 0.1369,
+      "recall_M0": 0.4989,
+      "precision_M0": 0.5517,
+      "f1_M0": 0.5239,
+      "lift_M0": 2.49,
+      "expo_M1_NTD": 52636374.0
+    },
+    {
+      "algoritmo": "rf",
+      "nombre": "Random Forest",
+      "elegido_en_6_3": false,
+      "pr_auc": 0.5479,
+      "roc_auc": 0.7727,
+      "brier": 0.1362,
+      "recall_M0": 0.4989,
+      "precision_M0": 0.5517,
+      "f1_M0": 0.5239,
+      "lift_M0": 2.49,
+      "expo_M1_NTD": 52045670.0
+    }
+  ],
+  "KPI": {
+    "primario_nombre": "Exposición en mora capturada a capacidad fija (NT$/mes)",
+    "expo_M0": 32972552.0,
+    "expo_M1": 51471700.0,
+    "expo_B1": 34509973.0,
+    "expo_mejor_regla": 43740502.0,
+    "delta_expo_mejor_vs_mejor_regla": 7731198.0,
+    "beneficio_neto_M0": 3716706.0,
+    "beneficio_neto_M1": 5936604.0,
+    "beneficio_neto_B1": 3901197.0,
+    "mejor_regla": "B2 · Regla de exposición (saldo)",
+    "beneficio_neto_mejor_regla": 5008860.0,
+    "delta_M0_vs_B1_NTD": -184491.0,
+    "delta_M1_vs_B1_NTD": 2035407.0,
+    "delta_mejor_vs_mejor_regla_NTD": 927744.0,
+    "delta_recall_vs_B1_pp": 2.3
+  },
+  "umbrales_por_variante": {
+    "M0": {
+      "alcanzados": 3,
+      "total": 4
+    },
+    "M1": {
+      "alcanzados": 4,
+      "total": 4
+    }
+  },
+  "T_umbrales": [
+    {
+      "umbral": "U0 · exposición capturada supera a la mejor regla en >= 10%",
+      "medido_sobre": "M1",
+      "valor_modelo_final": "+17.7%",
+      "alcanzado": true,
+      "ic95": [
+        12.42,
+        23.57
+      ],
+      "prob_supera_umbral": 0.999
+    },
+    {
+      "umbral": "U1 · recall supera a B1 en >= 10 pp",
+      "medido_sobre": "M0",
+      "valor_modelo_final": "+2.3 pp",
+      "alcanzado": false,
+      "ic95": [
+        0.98,
+        4.0
+      ],
+      "prob_supera_umbral": 1.0
+    },
+    {
+      "umbral": "U2 · PR-AUC (CV) >= 0,55",
+      "medido_sobre": "modelo",
+      "valor_modelo_final": "0.5579",
+      "alcanzado": true
+    },
+    {
+      "umbral": "U3 · lift @20% >= 2,0",
+      "medido_sobre": "M0",
+      "valor_modelo_final": "2.50",
+      "alcanzado": true
+    },
+    {
+      "umbral": "U4 · KPI derivado positivo y mayor que el de la mejor regla",
+      "medido_sobre": "M1",
+      "valor_modelo_final": "5,936,604 vs 5,008,860 NT$",
+      "alcanzado": true
+    },
+    {
+      "umbral": "U5 · excluir las demográficas cuesta < 0,01 de PR-AUC",
+      "medido_sobre": "modelo",
+      "valor_modelo_final": "+0.0010",
+      "alcanzado": true
+    }
+  ],
+  "umbrales_pendientes": [
+    "U1"
+  ],
+  "boot": {
+    "n": 5000,
+    "par": "M1 vs B2",
+    "ratio_punt": 17.68,
+    "ratio_ic": [
+      12.42,
+      23.57
+    ],
+    "ratio_p_supera_umbral": 0.999,
+    "ratio_n_no_positivos": 0,
+    "h2_punt": 2.34,
+    "h2_ic": [
+      0.98,
+      4.0
+    ],
+    "h2_p_positivo": 1.0,
+    "sesgo_seleccion_pp": 0.0,
+    "por_estrategia": {
+      "B1": {
+        "recall_ic95": [
+          0.4548,
+          0.4993
+        ],
+        "precision_ic95": [
+          0.495,
+          0.5583
+        ],
+        "lift_ic95": [
+          2.27,
+          2.5
+        ],
+        "exposicion_ic95": [
+          30014060.0,
+          39089167.0
+        ]
+      },
+      "B2": {
+        "recall_ic95": [
+          0.1656,
+          0.2025
+        ],
+        "precision_ic95": [
+          0.1808,
+          0.2275
+        ],
+        "lift_ic95": [
+          0.83,
+          1.01
+        ],
+        "exposicion_ic95": [
+          37969865.0,
+          49926436.0
+        ]
+      },
+      "M0": {
+        "recall_ic95": [
+          0.48,
+          0.5236
+        ],
+        "precision_ic95": [
+          0.5242,
+          0.5842
+        ],
+        "lift_ic95": [
+          2.4,
+          2.62
+        ],
+        "exposicion_ic95": [
+          29141153.0,
+          37108539.0
+        ]
+      },
+      "M1": {
+        "recall_ic95": [
+          0.3439,
+          0.3863
+        ],
+        "precision_ic95": [
+          0.3758,
+          0.4317
+        ],
+        "lift_ic95": [
+          1.72,
+          1.93
+        ],
+        "exposicion_ic95": [
+          45824452.0,
+          57509857.0
+        ]
+      }
+    }
+  },
+  "semillas": {
+    "n": 5,
+    "ratio_min": 17.7,
+    "ratio_max": 23.0,
+    "ratio_media": 19.8,
+    "delta_expo_min": 7424005.0,
+    "delta_expo_max": 9514410.0,
+    "delta_expo_media": 8190959.0,
+    "h2_min": 1.36,
+    "h2_max": 4.44,
+    "h2_cambia_signo": false,
+    "u0_cumple_en": 5
+  },
+  "T_sensibilidad": [
+    {
+      "LGD": 0.4,
+      "efectividad": 0.1,
+      "capacidad": 0.1,
+      "B2": 1096562.0,
+      "M1": 1489845.0,
+      "gana": "M1"
+    },
+    {
+      "LGD": 0.4,
+      "efectividad": 0.1,
+      "capacidad": 0.2,
+      "B2": 1509620.0,
+      "M1": 1818868.0,
+      "gana": "M1"
+    },
+    {
+      "LGD": 0.4,
+      "efectividad": 0.1,
+      "capacidad": 0.3,
+      "B2": 1739068.0,
+      "M1": 1998016.0,
+      "gana": "M1"
+    },
+    {
+      "LGD": 0.4,
+      "efectividad": 0.2,
+      "capacidad": 0.1,
+      "B2": 2313124.0,
+      "M1": 3099690.0,
+      "gana": "M1"
+    },
+    {
+      "LGD": 0.4,
+      "efectividad": 0.2,
+      "capacidad": 0.2,
+      "B2": 3259240.0,
+      "M1": 3877736.0,
+      "gana": "M1"
+    },
+    {
+      "LGD": 0.4,
+      "efectividad": 0.2,
+      "capacidad": 0.3,
+      "B2": 3838336.0,
+      "M1": 4356232.0,
+      "gana": "M1"
+    },
+    {
+      "LGD": 0.4,
+      "efectividad": 0.3,
+      "capacidad": 0.1,
+      "B2": 3529686.0,
+      "M1": 4709534.0,
+      "gana": "M1"
+    },
+    {
+      "LGD": 0.4,
+      "efectividad": 0.3,
+      "capacidad": 0.2,
+      "B2": 5008860.0,
+      "M1": 5936604.0,
+      "gana": "M1"
+    },
+    {
+      "LGD": 0.4,
+      "efectividad": 0.3,
+      "capacidad": 0.3,
+      "B2": 5937604.0,
+      "M1": 6714448.0,
+      "gana": "M1"
+    },
+    {
+      "LGD": 0.6,
+      "efectividad": 0.1,
+      "capacidad": 0.1,
+      "B2": 1704843.0,
+      "M1": 2294767.0,
+      "gana": "M1"
+    },
+    {
+      "LGD": 0.6,
+      "efectividad": 0.1,
+      "capacidad": 0.2,
+      "B2": 2384430.0,
+      "M1": 2848302.0,
+      "gana": "M1"
+    },
+    {
+      "LGD": 0.6,
+      "efectividad": 0.1,
+      "capacidad": 0.3,
+      "B2": 2788702.0,
+      "M1": 3177124.0,
+      "gana": "M1"
+    },
+    {
+      "LGD": 0.6,
+      "efectividad": 0.2,
+      "capacidad": 0.1,
+      "B2": 3529686.0,
+      "M1": 4709534.0,
+      "gana": "M1"
+    },
+    {
+      "LGD": 0.6,
+      "efectividad": 0.2,
+      "capacidad": 0.2,
+      "B2": 5008860.0,
+      "M1": 5936604.0,
+      "gana": "M1"
+    },
+    {
+      "LGD": 0.6,
+      "efectividad": 0.2,
+      "capacidad": 0.3,
+      "B2": 5937604.0,
+      "M1": 6714448.0,
+      "gana": "M1"
+    },
+    {
+      "LGD": 0.6,
+      "efectividad": 0.3,
+      "capacidad": 0.1,
+      "B2": 5354529.0,
+      "M1": 7124301.0,
+      "gana": "M1"
+    },
+    {
+      "LGD": 0.6,
+      "efectividad": 0.3,
+      "capacidad": 0.2,
+      "B2": 7633290.0,
+      "M1": 9024906.0,
+      "gana": "M1"
+    },
+    {
+      "LGD": 0.6,
+      "efectividad": 0.3,
+      "capacidad": 0.3,
+      "B2": 9086506.0,
+      "M1": 10251773.0,
+      "gana": "M1"
+    },
+    {
+      "LGD": 0.8,
+      "efectividad": 0.1,
+      "capacidad": 0.1,
+      "B2": 2313124.0,
+      "M1": 3099690.0,
+      "gana": "M1"
+    },
+    {
+      "LGD": 0.8,
+      "efectividad": 0.1,
+      "capacidad": 0.2,
+      "B2": 3259240.0,
+      "M1": 3877736.0,
+      "gana": "M1"
+    },
+    {
+      "LGD": 0.8,
+      "efectividad": 0.1,
+      "capacidad": 0.3,
+      "B2": 3838336.0,
+      "M1": 4356232.0,
+      "gana": "M1"
+    },
+    {
+      "LGD": 0.8,
+      "efectividad": 0.2,
+      "capacidad": 0.1,
+      "B2": 4746248.0,
+      "M1": 6319379.0,
+      "gana": "M1"
+    },
+    {
+      "LGD": 0.8,
+      "efectividad": 0.2,
+      "capacidad": 0.2,
+      "B2": 6758480.0,
+      "M1": 7995472.0,
+      "gana": "M1"
+    },
+    {
+      "LGD": 0.8,
+      "efectividad": 0.2,
+      "capacidad": 0.3,
+      "B2": 8036872.0,
+      "M1": 9072664.0,
+      "gana": "M1"
+    },
+    {
+      "LGD": 0.8,
+      "efectividad": 0.3,
+      "capacidad": 0.1,
+      "B2": 7179372.0,
+      "M1": 9539069.0,
+      "gana": "M1"
+    },
+    {
+      "LGD": 0.8,
+      "efectividad": 0.3,
+      "capacidad": 0.2,
+      "B2": 10257720.0,
+      "M1": 12113208.0,
+      "gana": "M1"
+    },
+    {
+      "LGD": 0.8,
+      "efectividad": 0.3,
+      "capacidad": 0.3,
+      "B2": 12235408.0,
+      "M1": 13789097.0,
+      "gana": "M1"
+    }
+  ],
+  "sensibilidad_par": "M1 vs B2",
+  "sensibilidad_veredicto_constante": true,
+  "sensibilidad_veredicto": "M1",
+  "reproducible": true,
+  "T_equidad": [
+    {
+      "atributo": "SEX",
+      "grupo": "femenino",
+      "n": 3666,
+      "morosos": 757,
+      "prevalencia": 0.2065,
+      "en_resumen": true,
+      "sel_B1": 0.1939,
+      "recall_B1": 0.4875,
+      "sel_B2": 0.1994,
+      "recall_B2": 0.181,
+      "sel_M0": 0.1882,
+      "recall_M0": 0.5112,
+      "sel_M1": 0.198,
+      "recall_M1": 0.3844
+    },
+    {
+      "atributo": "SEX",
+      "grupo": "masculino",
+      "n": 2336,
+      "morosos": 570,
+      "prevalencia": 0.244,
+      "en_resumen": true,
+      "sel_B1": 0.2093,
+      "recall_B1": 0.4632,
+      "sel_B2": 0.2008,
+      "recall_B2": 0.186,
+      "sel_M0": 0.2183,
+      "recall_M0": 0.486,
+      "sel_M1": 0.2029,
+      "recall_M1": 0.3404
+    },
+    {
+      "atributo": "AGE",
+      "grupo": "21-29",
+      "n": 1931,
+      "morosos": 418,
+      "prevalencia": 0.2165,
+      "en_resumen": true,
+      "sel_B1": 0.2165,
+      "recall_B1": 0.4904,
+      "sel_B2": 0.1683,
+      "recall_B2": 0.1555,
+      "sel_M0": 0.2248,
+      "recall_M0": 0.5383,
+      "sel_M1": 0.1937,
+      "recall_M1": 0.3517
+    },
+    {
+      "atributo": "AGE",
+      "grupo": "30-39",
+      "n": 2210,
+      "morosos": 460,
+      "prevalencia": 0.2081,
+      "en_resumen": true,
+      "sel_B1": 0.1864,
+      "recall_B1": 0.4522,
+      "sel_B2": 0.2231,
+      "recall_B2": 0.2152,
+      "sel_M0": 0.1774,
+      "recall_M0": 0.4609,
+      "sel_M1": 0.2036,
+      "recall_M1": 0.3804
+    },
+    {
+      "atributo": "AGE",
+      "grupo": "40-49",
+      "n": 1301,
+      "morosos": 304,
+      "prevalencia": 0.2337,
+      "en_resumen": true,
+      "sel_B1": 0.1922,
+      "recall_B1": 0.477,
+      "sel_B2": 0.2037,
+      "recall_B2": 0.1743,
+      "sel_M0": 0.196,
+      "recall_M0": 0.5033,
+      "sel_M1": 0.1906,
+      "recall_M1": 0.3454
+    },
+    {
+      "atributo": "AGE",
+      "grupo": "50 o más",
+      "n": 560,
+      "morosos": 145,
+      "prevalencia": 0.2589,
+      "en_resumen": true,
+      "sel_B1": 0.2143,
+      "recall_B1": 0.5172,
+      "sel_B2": 0.2089,
+      "recall_B2": 0.1793,
+      "sel_M0": 0.2125,
+      "recall_M0": 0.5103,
+      "sel_M1": 0.2286,
+      "recall_M1": 0.4
+    },
+    {
+      "atributo": "EDUCATION",
+      "grupo": "otros",
+      "n": 90,
+      "morosos": 5,
+      "prevalencia": 0.0556,
+      "en_resumen": false,
+      "sel_B1": 0.1111,
+      "recall_B1": 0.2,
+      "sel_B2": 0.3,
+      "recall_B2": 0.4,
+      "sel_M0": 0.0889,
+      "recall_M0": 0.2,
+      "sel_M1": 0.2333,
+      "recall_M1": 0.4
+    },
+    {
+      "atributo": "EDUCATION",
+      "grupo": "posgrado",
+      "n": 2092,
+      "morosos": 375,
+      "prevalencia": 0.1793,
+      "en_resumen": true,
+      "sel_B1": 0.153,
+      "recall_B1": 0.4,
+      "sel_B2": 0.1879,
+      "recall_B2": 0.192,
+      "sel_M0": 0.141,
+      "recall_M0": 0.416,
+      "sel_M1": 0.1563,
+      "recall_M1": 0.2933
+    },
+    {
+      "atributo": "EDUCATION",
+      "grupo": "secundaria",
+      "n": 1046,
+      "morosos": 275,
+      "prevalencia": 0.2629,
+      "en_resumen": true,
+      "sel_B1": 0.2256,
+      "recall_B1": 0.48,
+      "sel_B2": 0.1654,
+      "recall_B2": 0.1309,
+      "sel_M0": 0.2467,
+      "recall_M0": 0.52,
+      "sel_M1": 0.2141,
+      "recall_M1": 0.3927
+    },
+    {
+      "atributo": "EDUCATION",
+      "grupo": "universidad",
+      "n": 2774,
+      "morosos": 672,
+      "prevalencia": 0.2422,
+      "en_resumen": true,
+      "sel_B1": 0.2286,
+      "recall_B1": 0.5208,
+      "sel_B2": 0.2188,
+      "recall_B2": 0.1979,
+      "sel_M0": 0.2304,
+      "recall_M0": 0.5417,
+      "sel_M1": 0.2264,
+      "recall_M1": 0.3943
+    },
+    {
+      "atributo": "MARRIAGE",
+      "grupo": "casado",
+      "n": 2760,
+      "morosos": 664,
+      "prevalencia": 0.2406,
+      "en_resumen": true,
+      "sel_B1": 0.2069,
+      "recall_B1": 0.488,
+      "sel_B2": 0.2116,
+      "recall_B2": 0.1988,
+      "sel_M0": 0.1964,
+      "recall_M0": 0.4955,
+      "sel_M1": 0.208,
+      "recall_M1": 0.387
+    },
+    {
+      "atributo": "MARRIAGE",
+      "grupo": "código 0 (no documentado)",
+      "n": 8,
+      "morosos": 1,
+      "prevalencia": 0.125,
+      "en_resumen": false,
+      "sel_B1": 0.25,
+      "recall_B1": 0.0,
+      "sel_B2": 0.0,
+      "recall_B2": 0.0,
+      "sel_M0": 0.5,
+      "recall_M0": 0.0,
+      "sel_M1": 0.0,
+      "recall_M1": 0.0
+    },
+    {
+      "atributo": "MARRIAGE",
+      "grupo": "otros",
+      "n": 57,
+      "morosos": 14,
+      "prevalencia": 0.2456,
+      "en_resumen": false,
+      "sel_B1": 0.2281,
+      "recall_B1": 0.5,
+      "sel_B2": 0.2105,
+      "recall_B2": 0.2857,
+      "sel_M0": 0.2281,
+      "recall_M0": 0.5,
+      "sel_M1": 0.2632,
+      "recall_M1": 0.4286
+    },
+    {
+      "atributo": "MARRIAGE",
+      "grupo": "soltero",
+      "n": 3177,
+      "morosos": 648,
+      "prevalencia": 0.204,
+      "en_resumen": true,
+      "sel_B1": 0.1933,
+      "recall_B1": 0.466,
+      "sel_B2": 0.1901,
+      "recall_B2": 0.1651,
+      "sel_M0": 0.2018,
+      "recall_M0": 0.5062,
+      "sel_M1": 0.1923,
+      "recall_M1": 0.3426
+    }
+  ],
+  "T_equidad_resumen": [
+    {
+      "atributo": "SEX",
+      "estrategia": "B1",
+      "ratio_seleccion": 0.926,
+      "brecha_recall_pp": 2.4,
+      "grupo_menor_recall": "masculino"
+    },
+    {
+      "atributo": "SEX",
+      "estrategia": "B2",
+      "ratio_seleccion": 0.993,
+      "brecha_recall_pp": 0.5,
+      "grupo_menor_recall": "femenino"
+    },
+    {
+      "atributo": "SEX",
+      "estrategia": "M0",
+      "ratio_seleccion": 0.862,
+      "brecha_recall_pp": 2.5,
+      "grupo_menor_recall": "masculino"
+    },
+    {
+      "atributo": "SEX",
+      "estrategia": "M1",
+      "ratio_seleccion": 0.976,
+      "brecha_recall_pp": 4.4,
+      "grupo_menor_recall": "masculino"
+    },
+    {
+      "atributo": "AGE",
+      "estrategia": "B1",
+      "ratio_seleccion": 0.861,
+      "brecha_recall_pp": 6.5,
+      "grupo_menor_recall": "30-39"
+    },
+    {
+      "atributo": "AGE",
+      "estrategia": "B2",
+      "ratio_seleccion": 0.754,
+      "brecha_recall_pp": 6.0,
+      "grupo_menor_recall": "21-29"
+    },
+    {
+      "atributo": "AGE",
+      "estrategia": "M0",
+      "ratio_seleccion": 0.789,
+      "brecha_recall_pp": 7.7,
+      "grupo_menor_recall": "30-39"
+    },
+    {
+      "atributo": "AGE",
+      "estrategia": "M1",
+      "ratio_seleccion": 0.834,
+      "brecha_recall_pp": 5.5,
+      "grupo_menor_recall": "40-49"
+    },
+    {
+      "atributo": "EDUCATION",
+      "estrategia": "B1",
+      "ratio_seleccion": 0.669,
+      "brecha_recall_pp": 12.1,
+      "grupo_menor_recall": "posgrado"
+    },
+    {
+      "atributo": "EDUCATION",
+      "estrategia": "B2",
+      "ratio_seleccion": 0.756,
+      "brecha_recall_pp": 6.7,
+      "grupo_menor_recall": "secundaria"
+    },
+    {
+      "atributo": "EDUCATION",
+      "estrategia": "M0",
+      "ratio_seleccion": 0.572,
+      "brecha_recall_pp": 12.6,
+      "grupo_menor_recall": "posgrado"
+    },
+    {
+      "atributo": "EDUCATION",
+      "estrategia": "M1",
+      "ratio_seleccion": 0.69,
+      "brecha_recall_pp": 10.1,
+      "grupo_menor_recall": "posgrado"
+    },
+    {
+      "atributo": "MARRIAGE",
+      "estrategia": "B1",
+      "ratio_seleccion": 0.934,
+      "brecha_recall_pp": 2.2,
+      "grupo_menor_recall": "soltero"
+    },
+    {
+      "atributo": "MARRIAGE",
+      "estrategia": "B2",
+      "ratio_seleccion": 0.898,
+      "brecha_recall_pp": 3.4,
+      "grupo_menor_recall": "soltero"
+    },
+    {
+      "atributo": "MARRIAGE",
+      "estrategia": "M0",
+      "ratio_seleccion": 0.973,
+      "brecha_recall_pp": 1.1,
+      "grupo_menor_recall": "casado"
+    },
+    {
+      "atributo": "MARRIAGE",
+      "estrategia": "M1",
+      "ratio_seleccion": 0.925,
+      "brecha_recall_pp": 4.4,
+      "grupo_menor_recall": "soltero"
+    }
+  ],
+  "equidad_lectura": {
+    "SEX": {
+      "brecha_recall_modelo_pp": 4.4,
+      "brecha_recall_B1_pp": 2.4,
+      "diferencia_pp": 2.0,
+      "diferencia_ic95_pp": [
+        -3.7,
+        6.8
+      ],
+      "veredicto": "sin diferencia distinguible de B1",
+      "ratio_seleccion_modelo": 0.976
+    },
+    "AGE": {
+      "brecha_recall_modelo_pp": 5.5,
+      "brecha_recall_B1_pp": 6.5,
+      "diferencia_pp": -1.0,
+      "diferencia_ic95_pp": [
+        -9.2,
+        8.0
+      ],
+      "veredicto": "sin diferencia distinguible de B1",
+      "ratio_seleccion_modelo": 0.834
+    },
+    "EDUCATION": {
+      "brecha_recall_modelo_pp": 10.1,
+      "brecha_recall_B1_pp": 12.1,
+      "diferencia_pp": -2.0,
+      "diferencia_ic95_pp": [
+        -7.3,
+        6.0
+      ],
+      "veredicto": "sin diferencia distinguible de B1",
+      "ratio_seleccion_modelo": 0.69
+    },
+    "MARRIAGE": {
+      "brecha_recall_modelo_pp": 4.4,
+      "brecha_recall_B1_pp": 2.2,
+      "diferencia_pp": 2.2,
+      "diferencia_ic95_pp": [
+        -3.2,
+        6.7
+      ],
+      "veredicto": "sin diferencia distinguible de B1",
+      "ratio_seleccion_modelo": 0.925
+    }
+  },
+  "interpretacion": {
+    "permutacion": [
+      {
+        "bloque": "Estado de pago",
+        "n_variables": 6,
+        "caida_pr_auc": 0.2829,
+        "caida_pr_auc_std": 0.0048,
+        "caida_exposicion_pct": 16.6
+      },
+      {
+        "bloque": "Pagos realizados",
+        "n_variables": 6,
+        "caida_pr_auc": 0.0256,
+        "caida_pr_auc_std": 0.0023,
+        "caida_exposicion_pct": 0.4
+      },
+      {
+        "bloque": "Saldos",
+        "n_variables": 6,
+        "caida_pr_auc": 0.0184,
+        "caida_pr_auc_std": 0.0054,
+        "caida_exposicion_pct": 6.5
+      },
+      {
+        "bloque": "Límite de crédito",
+        "n_variables": 1,
+        "caida_pr_auc": 0.0111,
+        "caida_pr_auc_std": 0.002,
+        "caida_exposicion_pct": 1.4
+      }
+    ],
+    "ablacion": [
+      {
+        "bloque_quitado": "Estado de pago",
+        "pr_auc_cv": 0.4479,
+        "delta_pr_auc": -0.11,
+        "delta_exposicion_pct": -8.0
+      },
+      {
+        "bloque_quitado": "Saldos",
+        "pr_auc_cv": 0.5521,
+        "delta_pr_auc": -0.0058,
+        "delta_exposicion_pct": -0.2
+      },
+      {
+        "bloque_quitado": "Límite de crédito",
+        "pr_auc_cv": 0.5531,
+        "delta_pr_auc": -0.0049,
+        "delta_exposicion_pct": -1.3
+      },
+      {
+        "bloque_quitado": "Pagos realizados",
+        "pr_auc_cv": 0.5537,
+        "delta_pr_auc": -0.0043,
+        "delta_exposicion_pct": 0.3
+      }
+    ],
+    "base_ablacion": {
+      "pr_auc_cv": 0.5579
+    },
+    "dependencia_parcial": {
+      "PAY_1": {
+        "valores": [
+          -2.0,
+          -1.0,
+          0.0,
+          1.0,
+          2.0,
+          3.0,
+          4.0,
+          5.0,
+          6.0,
+          7.0,
+          8.0
+        ],
+        "prob_media": [
+          0.1717,
+          0.1748,
+          0.1741,
+          0.2305,
+          0.6027,
+          0.6051,
+          0.5941,
+          0.5422,
+          0.5422,
+          0.5422,
+          0.5422
+        ]
+      },
+      "LIMIT_BAL": {
+        "valores": [
+          20000.0,
+          57273.0,
+          94545.0,
+          131818.0,
+          169091.0,
+          206364.0,
+          243636.0,
+          280909.0,
+          318182.0,
+          355455.0,
+          392727.0,
+          430000.0
+        ],
+        "prob_media": [
+          0.2628,
+          0.2403,
+          0.2228,
+          0.2172,
+          0.2037,
+          0.2019,
+          0.1932,
+          0.1929,
+          0.1907,
+          0.1854,
+          0.1851,
+          0.1897
+        ]
+      },
+      "PAY_AMT1": {
+        "valores": [
+          0.0,
+          1664.0,
+          3328.0,
+          4993.0,
+          6657.0,
+          8321.0,
+          9985.0,
+          11649.0,
+          13314.0,
+          14978.0,
+          16642.0,
+          18306.0
+        ],
+        "prob_media": [
+          0.2463,
+          0.2207,
+          0.2092,
+          0.1998,
+          0.2001,
+          0.2007,
+          0.1929,
+          0.1935,
+          0.1945,
+          0.1954,
+          0.1983,
+          0.198
+        ]
+      }
+    },
+    "caso_local": {
+      "id_cliente": 27499,
+      "PAY_1_a_6": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "saldo_NTD": 613860.0,
+      "limite_NTD": 500000.0,
+      "prob": 0.742,
+      "perdida_esperada_NTD": 455713.0,
+      "prob_si_PAY_1_al_dia": 0.151,
+      "prob_si_6_meses_al_dia": 0.151
+    }
+  },
+  "shap": {
+    "disponible": true,
+    "version": "0.54.1",
+    "escala": "log-odds",
+    "n_explicados": 1000,
+    "error_aditividad_max": 1.1102230246251565e-15,
+    "valor_base": -1.5401,
+    "valor_base_prob": 0.1765,
+    "importancia_variable_top10": {
+      "PAY_1": 0.4893,
+      "LIMIT_BAL": 0.1759,
+      "BILL_AMT1": 0.1383,
+      "PAY_AMT2": 0.1231,
+      "PAY_AMT1": 0.1057,
+      "PAY_AMT4": 0.0755,
+      "PAY_AMT3": 0.0741,
+      "PAY_3": 0.0703,
+      "PAY_2": 0.0646,
+      "PAY_6": 0.0567
+    },
+    "importancia_bloque": {
+      "Estado de pago": 0.6473,
+      "Pagos realizados": 0.3078,
+      "Saldos": 0.1878,
+      "Límite de crédito": 0.1759
+    },
+    "direccion_spearman": {
+      "PAY_1": 0.468,
+      "LIMIT_BAL": -0.923,
+      "BILL_AMT1": -0.343,
+      "PAY_AMT2": -0.879,
+      "PAY_AMT1": -0.923,
+      "PAY_AMT4": -0.822,
+      "PAY_AMT3": -0.73,
+      "PAY_3": 0.884
+    },
+    "caso_local": {
+      "id_cliente": 27499,
+      "f_x": 0.8385,
+      "prob_sin_calibrar": 0.6981,
+      "prob_calibrada": 0.742,
+      "aportes_top8": [
+        {
+          "variable": "PAY_1",
+          "valor": 2.0,
+          "aporte": 2.468
+        },
+        {
+          "variable": "PAY_AMT1",
+          "valor": 37300.0,
+          "aporte": -0.2146
+        },
+        {
+          "variable": "BILL_AMT1",
+          "valor": 613860.0,
+          "aporte": 0.208
+        },
+        {
+          "variable": "LIMIT_BAL",
+          "valor": 500000.0,
+          "aporte": 0.1282
+        },
+        {
+          "variable": "PAY_AMT2",
+          "valor": 11000.0,
+          "aporte": -0.1045
+        },
+        {
+          "variable": "PAY_AMT6",
+          "valor": 100000.0,
+          "aporte": -0.1041
+        },
+        {
+          "variable": "BILL_AMT2",
+          "valor": 512526.0,
+          "aporte": 0.0953
+        },
+        {
+          "variable": "BILL_AMT4",
+          "valor": 145482.0,
+          "aporte": 0.089
+        }
+      ]
+    }
+  },
+  "figuras": [
+    "fig1_eda.png",
+    "fig2_algoritmos.png",
+    "fig3_estrategias.png",
+    "fig4_capacidad.png",
+    "fig5_calibracion.png",
+    "fig6_equidad.png",
+    "fig7_interpretacion.png",
+    "fig8_shap_resumen.png",
+    "fig9_shap_caso_local.png"
+  ]
+}

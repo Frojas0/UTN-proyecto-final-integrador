@@ -1,0 +1,11 @@
+# Dependencias del notebook baseline_v9.ipynb
+# Versiones exactas con las que se generaron las cifras del informe.
+# Con otras versiones de scikit-learn el modelo da números algo distintos
+# (por ejemplo, con 1.9.1 la PR-AUC del conjunto de prueba pasa de 0,547 a 0,550).
+pandas==3.0.2
+numpy==2.4.4
+scikit-learn==1.8.0
+matplotlib==3.10.8
+xlrd>=2.0.1         # para leer el .xls original de UCI
+shap>=0.44          # opcional: sección 7.6bis y figuras 8 y 9; sin él, el notebook corre igual
+jupyter             # sólo para correrlo en local; Colab ya lo trae

@@ -1,0 +1,15 @@
+# Entornos y archivos temporales
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+
+# Archivos que agrega el sistema (Windows, Mac, Google Drive)
+desktop.ini
+Thumbs.db
+.DS_Store
+
+# Archivos de trabajo que no van al repositorio
+*.docx
+~$*
+fuentes/
