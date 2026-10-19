@@ -115,4 +115,4 @@ Al final del notebook hay un anexo con los cambios entre versiones.
 
 ## Autores
 
-Agustin Alejandro Martinez · Facundo Martin Rojas · Ana Paula Athor · Alexia Antonoglou · Esteban German Rojas Serrano
+Esteban German Rojas Serrano · Agustin Alejandro Martinez · Ana Paula Athor · Alexia Antonoglou · Facundo Martin Rojas
